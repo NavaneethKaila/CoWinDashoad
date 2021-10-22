@@ -1,0 +1,29 @@
+import {PieChart, Cell, Pie, Legend} from 'recharts'
+import {AgeContainer, AgeHeading} from './styledComponents'
+
+const VaccinationByAge = props => {
+  const {vaccinationByAgeData} = props
+  return (
+    <AgeContainer>
+      <AgeHeading>Vaccination by age</AgeHeading>
+      <PieChart width={1000} height={300}>
+        <Pie
+          cx="50%"
+          cy="50%"
+          data={vaccinationByAgeData}
+          startAngle={0}
+          endAngle={360}
+          outerRadius="50%"
+          dataKey="count"
+        >
+          <Cell name="18-44" fill="#2d87bb" />
+          <Cell name="44-60" fill="#a3df9f" />
+          <Cell name="Above 60" fill="#64c2a6" />
+        </Pie>
+        <Legend iconType="circle" />
+      </PieChart>
+    </AgeContainer>
+  )
+}
+
+export default VaccinationByAge
